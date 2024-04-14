@@ -1,7 +1,18 @@
+using EyeSurgeryClinic.Data.Models;
+using EyeSurgeryClinic.Data;
+using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+// Add Identity services
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
 
@@ -18,6 +29,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // Add this line to enable authentication
 app.UseAuthorization();
 
 app.MapRazorPages();

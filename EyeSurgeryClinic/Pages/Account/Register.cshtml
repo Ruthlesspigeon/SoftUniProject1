@@ -1,0 +1,35 @@
+﻿@page
+@model EyeSurgeryClinic.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Input.Name"></label>
+        <input asp-for="Input.Name" />
+        <span asp-validation-for="Input.Name"></span>
+    </div>
+
+    <div>
+        <label asp-for="Input.Email"></label>
+        <input asp-for="Input.Email" />
+        <span asp-validation-for="Input.Email"></span>
+    </div>
+
+    <div>
+        <label asp-for="Input.Phone"></label>
+        <input asp-for="Input.Phone" />
+        <span asp-validation-for="Input.Phone"></span>
+    </div>
+
+    <div>
+        <label asp-for="Input.Age"></label>
+        <input asp-for="Input.Age" />
+        <span asp-validation-for="Input.Age"></span>
+    </div>
+
+    <button type="submit">Register</button>
+</form>
